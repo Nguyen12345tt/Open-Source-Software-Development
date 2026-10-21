@@ -10,4 +10,6 @@ same($p->decide(0, 0, true, true), 'rejected', 'invalid-capacity');
 same($p->decide(10, -1, true, true), 'rejected', 'invalid-count');
 same($p->decide(10, 11, true, true), 'rejected', 'corrupt-over-count');
 same($p->decide(1, 0, true, false), 'confirmed', 'first-seat');
+// Ca kiểm thử bổ sung: sự kiện đã đầy và bật danh sách chờ nhưng đang đóng -> vẫn phải trả về rejected
+same($p->decide(10, 10, false, true), 'rejected', 'closed-when-full');
 finish();
