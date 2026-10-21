@@ -15,7 +15,7 @@ require __DIR__ . '/../templates/header.php';
     <label class="form-field" for="event_id">Sự kiện
 <select id="event_id" name="event_id">
             <?php foreach ($events as $event): ?>
-                <option value="<?= $event['id'] ?>">
+                <option value="<?= $event['id'] ?>" <?= field($_POST, 'event_id') === (string)$event['id'] ? 'selected' : '' ?>>
                     <?= e($event['title']) ?>
                 </option>
             <?php endforeach; ?>
